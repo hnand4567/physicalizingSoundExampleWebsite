@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Accessible Audio Explorer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="hero">
+
+    <h1>Accessible Audio Explorer</h1>
+
+    <p class="subtitle">
+        Upload or explore audio recordings for accessible sound research.
+    </p>
+
+</header>
+
+<main>
+
+    <!-- UPLOAD -->
+    <section class="card">
+
+        <h2>Upload Audio</h2>
+
+        <p>Upload an MP3 or WAV recording.</p>
+
+        <label for="audioUpload" class="button">
+            Choose Audio
+        </label>
+
+        <input id="audioUpload" type="file" accept=".mp3,.wav,.ogg" hidden>
+
+    </section>
+
+    <!-- SAMPLE -->
+    <section class="card">
+
+        <h2>Choose Sample Audio</h2>
+
+        <select id="sampleAudio">
+
+            <option value="">Select a recording</option>
+
+            <option value="audio/birds.mp3">Birds</option>
+            <option value="audio/rain.mp3">Rain</option>
+            <option value="audio/ocean.mp3">Ocean</option>
+            <option value="audio/piano.mp3">Piano</option>
+
+        </select>
+
+        <button id="loadSample">Load Audio</button>
+
+    </section>
+
+    <!-- PLAYER -->
+    <section class="card">
+
+        <h2>Audio Preview</h2>
+
+        <p><strong>File:</strong> <span id="fileName">No audio selected</span></p>
+
+        <p><strong>Duration:</strong> <span id="duration">--</span></p>
+
+        <!-- STATUS MESSAGE (ACCESSIBILITY) -->
+        <p id="statusMessage" class="status" aria-live="polite">
+            No audio loaded.
+        </p>
+
+        <audio id="audioPlayer" controls></audio>
+
+    </section>
+
+    <!-- TRIM -->
+    <section id="trimSection" class="card hidden">
+
+        <h2>Trim Audio (Preview Mode)</h2>
+
+        <p>This recording is longer than 10 seconds.</p>
+
+        <label>
+            Start (seconds)
+            <input type="range" id="startSlider" min="0" value="0">
+        </label>
+
+        <label>
+            End (seconds)
+            <input type="range" id="endSlider" min="0" value="10">
+        </label>
+
+        <button id="previewTrim">Preview Trim</button>
+        <button id="applyTrim">Apply Trim</button>
+
+    </section>
+
+</main>
+
+<footer>
+    Created for Accessible Sound Research
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
